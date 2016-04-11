@@ -1,7 +1,8 @@
 #include "matrix.h"
 #include <iostream>
 
-Matrix::Matrix(std::vector<std::vector<Cell>> cells):m_Cells(cells)
+Matrix::Matrix(std::vector<std::vector<Cell>> cells)
+    :m_Cells(cells), m_Rows(cells.size()), m_Cols(cells[0].size())
 {
 }
 
@@ -35,8 +36,8 @@ void Matrix::PrintPaths(unsigned int row, unsigned int col, std::vector<char> &p
 
 bool Matrix::FindStart(unsigned int &row, unsigned int &col)
 {
-    for(unsigned int r=0; r < m_Cells.size(); r++){
-        for(unsigned int c=0; c < m_Cells[r].size(); c++) {
+    for(unsigned int r=0; r < m_Rows; r++){
+        for(unsigned int c=0; c < m_Cols; c++) {
             if( Cell::s == m_Cells[r][c].Value ) {
                 row = r;
                 col = c;
@@ -45,4 +46,22 @@ bool Matrix::FindStart(unsigned int &row, unsigned int &col)
         }
     }
     return false;
+}
+
+void Matrix::FindArea(unsigned int row, unsigned int col, int &area)
+{
+    if(!IsFree(row, col)) {
+        return;
+    }
+    if(IsVisited(row, col)) {
+        return;
+    }
+
+    m_Cells[row][col].Visited = true;
+    area++;
+
+    FindArea(row+1, col, area);
+    FindArea(row-1, col, area);
+    FindArea(row, col+1, area);
+    FindArea(row, col-1, area);
 }
