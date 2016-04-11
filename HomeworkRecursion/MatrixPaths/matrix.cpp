@@ -2,7 +2,7 @@
 #include <iostream>
 
 Matrix::Matrix(std::vector<std::vector<Cell>> cells)
-    :m_Cells(cells), m_Rows(cells.size()), m_Cols(cells[0].size())
+    :m_Rows(cells.size()), m_Cols(cells[0].size()), m_Cells(cells)
 {
 }
 
