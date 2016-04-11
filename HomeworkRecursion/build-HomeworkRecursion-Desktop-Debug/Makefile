@@ -27,7 +27,9 @@ SUBTARGETS    =  \
 		sub-ArrayReverse \
 		sub-NestedLoops \
 		sub-RepetitionComb \
-		sub-TowerOfHanoi
+		sub-TowerOfHanoi \
+		sub-NoRepetitionComb \
+		sub-MatrixPaths
 
 
 sub-ArrayReverse-qmake_all:  FORCE
@@ -130,6 +132,56 @@ sub-TowerOfHanoi-install_subtargets: FORCE
 sub-TowerOfHanoi-uninstall_subtargets: FORCE
 	@test -d TowerOfHanoi/ || mkdir -p TowerOfHanoi/
 	cd TowerOfHanoi/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/TowerOfHanoi/TowerOfHanoi.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-NoRepetitionComb-qmake_all:  FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile
+	cd NoRepetitionComb/ && $(MAKE) -f Makefile qmake_all
+sub-NoRepetitionComb: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile
+sub-NoRepetitionComb-make_first: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile 
+sub-NoRepetitionComb-all: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile all
+sub-NoRepetitionComb-clean: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile clean
+sub-NoRepetitionComb-distclean: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-NoRepetitionComb-install_subtargets: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile install
+sub-NoRepetitionComb-uninstall_subtargets: FORCE
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-MatrixPaths-qmake_all:  FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile
+	cd MatrixPaths/ && $(MAKE) -f Makefile qmake_all
+sub-MatrixPaths: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile
+sub-MatrixPaths-make_first: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile 
+sub-MatrixPaths-all: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile all
+sub-MatrixPaths-clean: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile clean
+sub-MatrixPaths-distclean: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-MatrixPaths-install_subtargets: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile install
+sub-MatrixPaths-uninstall_subtargets: FORCE
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: ../HomeworkRecursion.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -245,15 +297,15 @@ Makefile: ../HomeworkRecursion.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ../HomeworkRecursion.pro
 
-qmake_all: sub-ArrayReverse-qmake_all sub-NestedLoops-qmake_all sub-RepetitionComb-qmake_all sub-TowerOfHanoi-qmake_all FORCE
+qmake_all: sub-ArrayReverse-qmake_all sub-NestedLoops-qmake_all sub-RepetitionComb-qmake_all sub-TowerOfHanoi-qmake_all sub-NoRepetitionComb-qmake_all sub-MatrixPaths-qmake_all FORCE
 
-make_first: sub-ArrayReverse-make_first sub-NestedLoops-make_first sub-RepetitionComb-make_first sub-TowerOfHanoi-make_first FORCE
-all: sub-ArrayReverse-all sub-NestedLoops-all sub-RepetitionComb-all sub-TowerOfHanoi-all FORCE
-clean: sub-ArrayReverse-clean sub-NestedLoops-clean sub-RepetitionComb-clean sub-TowerOfHanoi-clean FORCE
-distclean: sub-ArrayReverse-distclean sub-NestedLoops-distclean sub-RepetitionComb-distclean sub-TowerOfHanoi-distclean FORCE
+make_first: sub-ArrayReverse-make_first sub-NestedLoops-make_first sub-RepetitionComb-make_first sub-TowerOfHanoi-make_first sub-NoRepetitionComb-make_first sub-MatrixPaths-make_first FORCE
+all: sub-ArrayReverse-all sub-NestedLoops-all sub-RepetitionComb-all sub-TowerOfHanoi-all sub-NoRepetitionComb-all sub-MatrixPaths-all FORCE
+clean: sub-ArrayReverse-clean sub-NestedLoops-clean sub-RepetitionComb-clean sub-TowerOfHanoi-clean sub-NoRepetitionComb-clean sub-MatrixPaths-clean FORCE
+distclean: sub-ArrayReverse-distclean sub-NestedLoops-distclean sub-RepetitionComb-distclean sub-TowerOfHanoi-distclean sub-NoRepetitionComb-distclean sub-MatrixPaths-distclean FORCE
 	-$(DEL_FILE) Makefile
-install_subtargets: sub-ArrayReverse-install_subtargets sub-NestedLoops-install_subtargets sub-RepetitionComb-install_subtargets sub-TowerOfHanoi-install_subtargets FORCE
-uninstall_subtargets: sub-ArrayReverse-uninstall_subtargets sub-NestedLoops-uninstall_subtargets sub-RepetitionComb-uninstall_subtargets sub-TowerOfHanoi-uninstall_subtargets FORCE
+install_subtargets: sub-ArrayReverse-install_subtargets sub-NestedLoops-install_subtargets sub-RepetitionComb-install_subtargets sub-TowerOfHanoi-install_subtargets sub-NoRepetitionComb-install_subtargets sub-MatrixPaths-install_subtargets FORCE
+uninstall_subtargets: sub-ArrayReverse-uninstall_subtargets sub-NestedLoops-uninstall_subtargets sub-RepetitionComb-uninstall_subtargets sub-TowerOfHanoi-uninstall_subtargets sub-NoRepetitionComb-uninstall_subtargets sub-MatrixPaths-uninstall_subtargets FORCE
 
 sub-ArrayReverse-check:
 	@test -d ArrayReverse/ || mkdir -p ArrayReverse/
@@ -267,7 +319,13 @@ sub-RepetitionComb-check:
 sub-TowerOfHanoi-check:
 	@test -d TowerOfHanoi/ || mkdir -p TowerOfHanoi/
 	cd TowerOfHanoi/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/TowerOfHanoi/TowerOfHanoi.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
-check: sub-ArrayReverse-check sub-NestedLoops-check sub-RepetitionComb-check sub-TowerOfHanoi-check
+sub-NoRepetitionComb-check:
+	@test -d NoRepetitionComb/ || mkdir -p NoRepetitionComb/
+	cd NoRepetitionComb/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/NoRepetitionComb/NoRepetitionComb.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
+sub-MatrixPaths-check:
+	@test -d MatrixPaths/ || mkdir -p MatrixPaths/
+	cd MatrixPaths/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkRecursion/MatrixPaths/MatrixPaths.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
+check: sub-ArrayReverse-check sub-NestedLoops-check sub-RepetitionComb-check sub-TowerOfHanoi-check sub-NoRepetitionComb-check sub-MatrixPaths-check
 install: install_subtargets  FORCE
 
 uninstall:  uninstall_subtargets FORCE

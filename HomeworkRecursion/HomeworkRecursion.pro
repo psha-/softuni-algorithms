@@ -4,4 +4,7 @@ SUBDIRS += \
     ArrayReverse \
     NestedLoops \
     RepetitionComb \
-    TowerOfHanoi
+    TowerOfHanoi \
+    NoRepetitionComb \
+    MatrixPaths \
+    MatrixAreas
