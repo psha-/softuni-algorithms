@@ -25,7 +25,8 @@ DEL_DIR       = rmdir
 MOVE          = mv -f
 SUBTARGETS    =  \
 		sub-PermutationsRecursive \
-		sub-PermutationsIterative
+		sub-PermutationsIterative \
+		sub-CombinationsIterative
 
 
 sub-PermutationsRecursive-qmake_all:  FORCE
@@ -78,6 +79,31 @@ sub-PermutationsIterative-install_subtargets: FORCE
 sub-PermutationsIterative-uninstall_subtargets: FORCE
 	@test -d PermutationsIterative/ || mkdir -p PermutationsIterative/
 	cd PermutationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/PermutationsIterative/PermutationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-CombinationsIterative-qmake_all:  FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile
+	cd CombinationsIterative/ && $(MAKE) -f Makefile qmake_all
+sub-CombinationsIterative: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile
+sub-CombinationsIterative-make_first: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile 
+sub-CombinationsIterative-all: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile all
+sub-CombinationsIterative-clean: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile clean
+sub-CombinationsIterative-distclean: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-CombinationsIterative-install_subtargets: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile install
+sub-CombinationsIterative-uninstall_subtargets: FORCE
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: ../HomeworkComb.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -193,15 +219,15 @@ Makefile: ../HomeworkComb.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ../HomeworkComb.pro
 
-qmake_all: sub-PermutationsRecursive-qmake_all sub-PermutationsIterative-qmake_all FORCE
+qmake_all: sub-PermutationsRecursive-qmake_all sub-PermutationsIterative-qmake_all sub-CombinationsIterative-qmake_all FORCE
 
-make_first: sub-PermutationsRecursive-make_first sub-PermutationsIterative-make_first FORCE
-all: sub-PermutationsRecursive-all sub-PermutationsIterative-all FORCE
-clean: sub-PermutationsRecursive-clean sub-PermutationsIterative-clean FORCE
-distclean: sub-PermutationsRecursive-distclean sub-PermutationsIterative-distclean FORCE
+make_first: sub-PermutationsRecursive-make_first sub-PermutationsIterative-make_first sub-CombinationsIterative-make_first FORCE
+all: sub-PermutationsRecursive-all sub-PermutationsIterative-all sub-CombinationsIterative-all FORCE
+clean: sub-PermutationsRecursive-clean sub-PermutationsIterative-clean sub-CombinationsIterative-clean FORCE
+distclean: sub-PermutationsRecursive-distclean sub-PermutationsIterative-distclean sub-CombinationsIterative-distclean FORCE
 	-$(DEL_FILE) Makefile
-install_subtargets: sub-PermutationsRecursive-install_subtargets sub-PermutationsIterative-install_subtargets FORCE
-uninstall_subtargets: sub-PermutationsRecursive-uninstall_subtargets sub-PermutationsIterative-uninstall_subtargets FORCE
+install_subtargets: sub-PermutationsRecursive-install_subtargets sub-PermutationsIterative-install_subtargets sub-CombinationsIterative-install_subtargets FORCE
+uninstall_subtargets: sub-PermutationsRecursive-uninstall_subtargets sub-PermutationsIterative-uninstall_subtargets sub-CombinationsIterative-uninstall_subtargets FORCE
 
 sub-PermutationsRecursive-check:
 	@test -d PermutationsRecursive/ || mkdir -p PermutationsRecursive/
@@ -209,7 +235,10 @@ sub-PermutationsRecursive-check:
 sub-PermutationsIterative-check:
 	@test -d PermutationsIterative/ || mkdir -p PermutationsIterative/
 	cd PermutationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/PermutationsIterative/PermutationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
-check: sub-PermutationsRecursive-check sub-PermutationsIterative-check
+sub-CombinationsIterative-check:
+	@test -d CombinationsIterative/ || mkdir -p CombinationsIterative/
+	cd CombinationsIterative/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkComb/CombinationsIterative/CombinationsIterative.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
+check: sub-PermutationsRecursive-check sub-PermutationsIterative-check sub-CombinationsIterative-check
 install: install_subtargets  FORCE
 
 uninstall:  uninstall_subtargets FORCE
