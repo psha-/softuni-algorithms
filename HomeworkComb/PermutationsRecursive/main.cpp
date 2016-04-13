@@ -7,7 +7,7 @@ int count = 0;
 
 void PrintArr(const vector<int> &arr)
 {
-    int i = 0;
+    unsigned int i = 0;
     while( i < arr.size()-1 ) {
         cout << arr[i] << ", ";
         i++;
