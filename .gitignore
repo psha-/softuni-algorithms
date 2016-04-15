@@ -1,3 +1,5 @@
 *.autosave
 build-*
 !build-*/Makefile
+*.zip
+*.gz
