@@ -9,7 +9,7 @@ Heapsorter<T>::Heapsorter(std::vector<T> arr)
 }
 
 template<class T>
-T Heapsorter<T>::PopFront()
+T& Heapsorter<T>::PopFront()
 {
     auto popped = m_Rep[0];
     m_Rep[0] = m_Rep[--m_Length];
