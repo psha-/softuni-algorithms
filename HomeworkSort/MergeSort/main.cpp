@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -48,7 +49,15 @@ vector<T> MergeSort(vector<T> &arr, size_t start, size_t end)
 int main()
 {
 //    auto arr = vector<char>({'c','f','d','e','y','u','g','h','i','o','p','1','4','5','s','g','7'});
-    auto arr = vector<int>({1, 22, 3, 54, 5, 432, 7, 22, 9, 1, 11, 34, 14, 4, 15});
+    vector<int> arr = vector<int>();
+    int number;
+    string line;
+
+    cout << "Merge sort. Enter numbers separated by spaces: ";
+    getline(std::cin, line);
+    istringstream stream(line);
+    while (stream >> number)
+        arr.push_back(number);
 
     auto sorted = MergeSort(arr, 0, arr.size()-1);
 

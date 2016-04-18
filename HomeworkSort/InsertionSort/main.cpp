@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 using namespace std;
@@ -26,7 +27,15 @@ void InsertionSort(vector<T> &arr)
 
 int main()
 {
-    vector<int> arr = vector<int>({-1, -3, -5, 4, 2, 22, 13});
+    vector<int> arr = vector<int>();
+    int number;
+    string line;
+
+    cout << "Insertion sort. Enter numbers separated by spaces: ";
+    getline(std::cin, line);
+    istringstream stream(line);
+    while (stream >> number)
+        arr.push_back(number);
 
     InsertionSort(arr);
 
