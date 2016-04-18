@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
     InsertionSort \
     InterpolationSort \
-    MergeSort
+    MergeSort \
+    HeapSort
