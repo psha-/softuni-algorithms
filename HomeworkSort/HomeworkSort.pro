@@ -4,4 +4,5 @@ SUBDIRS += \
     InsertionSort \
     InterpolationSort \
     MergeSort \
-    HeapSort
+    HeapSort \
+    FisherYates
