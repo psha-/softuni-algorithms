@@ -28,7 +28,8 @@ SUBTARGETS    =  \
 		sub-InterpolationSort \
 		sub-MergeSort \
 		sub-HeapSort \
-		sub-FisherYates
+		sub-FisherYates \
+		sub-Words
 
 
 sub-InsertionSort-qmake_all:  FORCE
@@ -156,6 +157,31 @@ sub-FisherYates-install_subtargets: FORCE
 sub-FisherYates-uninstall_subtargets: FORCE
 	@test -d FisherYates/ || mkdir -p FisherYates/
 	cd FisherYates/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/FisherYates/FisherYates.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-Words-qmake_all:  FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile
+	cd Words/ && $(MAKE) -f Makefile qmake_all
+sub-Words: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile
+sub-Words-make_first: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile 
+sub-Words-all: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile all
+sub-Words-clean: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile clean
+sub-Words-distclean: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-Words-install_subtargets: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile install
+sub-Words-uninstall_subtargets: FORCE
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: ../HomeworkSort.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -271,15 +297,15 @@ Makefile: ../HomeworkSort.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ../HomeworkSort.pro
 
-qmake_all: sub-InsertionSort-qmake_all sub-InterpolationSort-qmake_all sub-MergeSort-qmake_all sub-HeapSort-qmake_all sub-FisherYates-qmake_all FORCE
+qmake_all: sub-InsertionSort-qmake_all sub-InterpolationSort-qmake_all sub-MergeSort-qmake_all sub-HeapSort-qmake_all sub-FisherYates-qmake_all sub-Words-qmake_all FORCE
 
-make_first: sub-InsertionSort-make_first sub-InterpolationSort-make_first sub-MergeSort-make_first sub-HeapSort-make_first sub-FisherYates-make_first FORCE
-all: sub-InsertionSort-all sub-InterpolationSort-all sub-MergeSort-all sub-HeapSort-all sub-FisherYates-all FORCE
-clean: sub-InsertionSort-clean sub-InterpolationSort-clean sub-MergeSort-clean sub-HeapSort-clean sub-FisherYates-clean FORCE
-distclean: sub-InsertionSort-distclean sub-InterpolationSort-distclean sub-MergeSort-distclean sub-HeapSort-distclean sub-FisherYates-distclean FORCE
+make_first: sub-InsertionSort-make_first sub-InterpolationSort-make_first sub-MergeSort-make_first sub-HeapSort-make_first sub-FisherYates-make_first sub-Words-make_first FORCE
+all: sub-InsertionSort-all sub-InterpolationSort-all sub-MergeSort-all sub-HeapSort-all sub-FisherYates-all sub-Words-all FORCE
+clean: sub-InsertionSort-clean sub-InterpolationSort-clean sub-MergeSort-clean sub-HeapSort-clean sub-FisherYates-clean sub-Words-clean FORCE
+distclean: sub-InsertionSort-distclean sub-InterpolationSort-distclean sub-MergeSort-distclean sub-HeapSort-distclean sub-FisherYates-distclean sub-Words-distclean FORCE
 	-$(DEL_FILE) Makefile
-install_subtargets: sub-InsertionSort-install_subtargets sub-InterpolationSort-install_subtargets sub-MergeSort-install_subtargets sub-HeapSort-install_subtargets sub-FisherYates-install_subtargets FORCE
-uninstall_subtargets: sub-InsertionSort-uninstall_subtargets sub-InterpolationSort-uninstall_subtargets sub-MergeSort-uninstall_subtargets sub-HeapSort-uninstall_subtargets sub-FisherYates-uninstall_subtargets FORCE
+install_subtargets: sub-InsertionSort-install_subtargets sub-InterpolationSort-install_subtargets sub-MergeSort-install_subtargets sub-HeapSort-install_subtargets sub-FisherYates-install_subtargets sub-Words-install_subtargets FORCE
+uninstall_subtargets: sub-InsertionSort-uninstall_subtargets sub-InterpolationSort-uninstall_subtargets sub-MergeSort-uninstall_subtargets sub-HeapSort-uninstall_subtargets sub-FisherYates-uninstall_subtargets sub-Words-uninstall_subtargets FORCE
 
 sub-InsertionSort-check:
 	@test -d InsertionSort/ || mkdir -p InsertionSort/
@@ -296,7 +322,10 @@ sub-HeapSort-check:
 sub-FisherYates-check:
 	@test -d FisherYates/ || mkdir -p FisherYates/
 	cd FisherYates/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/FisherYates/FisherYates.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
-check: sub-InsertionSort-check sub-InterpolationSort-check sub-MergeSort-check sub-HeapSort-check sub-FisherYates-check
+sub-Words-check:
+	@test -d Words/ || mkdir -p Words/
+	cd Words/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkSort/Words/Words.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
+check: sub-InsertionSort-check sub-InterpolationSort-check sub-MergeSort-check sub-HeapSort-check sub-FisherYates-check sub-Words-check
 install: install_subtargets  FORCE
 
 uninstall:  uninstall_subtargets FORCE
