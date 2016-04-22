@@ -25,7 +25,8 @@ DEL_DIR       = rmdir
 MOVE          = mv -f
 SUBTARGETS    =  \
 		sub-BinomialCoef \
-		sub-LongestZigzag
+		sub-LongestZigzag \
+		sub-DividingPresents
 
 
 sub-BinomialCoef-qmake_all:  FORCE
@@ -78,6 +79,31 @@ sub-LongestZigzag-install_subtargets: FORCE
 sub-LongestZigzag-uninstall_subtargets: FORCE
 	@test -d LongestZigzag/ || mkdir -p LongestZigzag/
 	cd LongestZigzag/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/LongestZigzag/LongestZigzag.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-DividingPresents-qmake_all:  FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile
+	cd DividingPresents/ && $(MAKE) -f Makefile qmake_all
+sub-DividingPresents: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile
+sub-DividingPresents-make_first: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile 
+sub-DividingPresents-all: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile all
+sub-DividingPresents-clean: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile clean
+sub-DividingPresents-distclean: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-DividingPresents-install_subtargets: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile install
+sub-DividingPresents-uninstall_subtargets: FORCE
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile uninstall
 
 Makefile: ../HomeworkDP.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
@@ -193,15 +219,15 @@ Makefile: ../HomeworkDP.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/q
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ../HomeworkDP.pro
 
-qmake_all: sub-BinomialCoef-qmake_all sub-LongestZigzag-qmake_all FORCE
+qmake_all: sub-BinomialCoef-qmake_all sub-LongestZigzag-qmake_all sub-DividingPresents-qmake_all FORCE
 
-make_first: sub-BinomialCoef-make_first sub-LongestZigzag-make_first FORCE
-all: sub-BinomialCoef-all sub-LongestZigzag-all FORCE
-clean: sub-BinomialCoef-clean sub-LongestZigzag-clean FORCE
-distclean: sub-BinomialCoef-distclean sub-LongestZigzag-distclean FORCE
+make_first: sub-BinomialCoef-make_first sub-LongestZigzag-make_first sub-DividingPresents-make_first FORCE
+all: sub-BinomialCoef-all sub-LongestZigzag-all sub-DividingPresents-all FORCE
+clean: sub-BinomialCoef-clean sub-LongestZigzag-clean sub-DividingPresents-clean FORCE
+distclean: sub-BinomialCoef-distclean sub-LongestZigzag-distclean sub-DividingPresents-distclean FORCE
 	-$(DEL_FILE) Makefile
-install_subtargets: sub-BinomialCoef-install_subtargets sub-LongestZigzag-install_subtargets FORCE
-uninstall_subtargets: sub-BinomialCoef-uninstall_subtargets sub-LongestZigzag-uninstall_subtargets FORCE
+install_subtargets: sub-BinomialCoef-install_subtargets sub-LongestZigzag-install_subtargets sub-DividingPresents-install_subtargets FORCE
+uninstall_subtargets: sub-BinomialCoef-uninstall_subtargets sub-LongestZigzag-uninstall_subtargets sub-DividingPresents-uninstall_subtargets FORCE
 
 sub-BinomialCoef-check:
 	@test -d BinomialCoef/ || mkdir -p BinomialCoef/
@@ -209,7 +235,10 @@ sub-BinomialCoef-check:
 sub-LongestZigzag-check:
 	@test -d LongestZigzag/ || mkdir -p LongestZigzag/
 	cd LongestZigzag/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/LongestZigzag/LongestZigzag.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
-check: sub-BinomialCoef-check sub-LongestZigzag-check
+sub-DividingPresents-check:
+	@test -d DividingPresents/ || mkdir -p DividingPresents/
+	cd DividingPresents/ && ( test -e Makefile || $(QMAKE) /home/akrastev/Qt/softuni-algorithms/HomeworkDP/DividingPresents/DividingPresents.pro -spec linux-g++-64 CONFIG+=debug CONFIG+=declarative_debug CONFIG+=qml_debug -o Makefile ) && $(MAKE) -f Makefile check
+check: sub-BinomialCoef-check sub-LongestZigzag-check sub-DividingPresents-check
 install: install_subtargets  FORCE
 
 uninstall:  uninstall_subtargets FORCE

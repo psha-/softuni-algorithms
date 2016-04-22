@@ -2,4 +2,5 @@ TEMPLATE = subdirs
 
 SUBDIRS += \
     BinomialCoef \
-    LongestZigzag
+    LongestZigzag \
+    DividingPresents
