@@ -1,4 +1,6 @@
 TEMPLATE = subdirs
 
 SUBDIRS += \
-    LIS
+    LIS \
+    LCS \
+    KnapSack
